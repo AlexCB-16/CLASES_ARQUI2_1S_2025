@@ -6,6 +6,7 @@ import os
 #python3 -m venv venv1
 # Activar el entorno virtual
 #source venv1/bin/activate
+#curl -X GET http://192.168.0.28:5000/datos
 
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
@@ -34,7 +35,7 @@ def obtener_datos_desde_procedimiento():
 
         with connection.cursor() as cursor:
             # Llamar al procedimiento almacenado
-            cursor.callproc('nombre_procedimiento')  # Reemplaza 'nombre_procedimiento' con el nombre real del procedimiento
+            cursor.callproc('obtener_ultimo_insertado') 
             result = cursor.fetchall()
 
         # Cerrar la conexión
